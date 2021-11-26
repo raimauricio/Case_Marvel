@@ -5,13 +5,15 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { EntryComponent } from './entry.component';
 import { LoginComponent } from './login/login.component';
+import { AccountDataComponent } from './account-data/account-data.component';
 
 
 @NgModule({
 
   declarations: [
     EntryComponent,
-    LoginComponent
+    LoginComponent,
+    AccountDataComponent
   ],
 
   exports: [EntryComponent],

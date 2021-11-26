@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
-
+  selector: 'app-account-data',
+  templateUrl: './account-data.component.html',
+  styleUrls: ['./account-data.component.css']
 })
-export class LoginComponent implements OnInit {
-
+export class AccountDataComponent implements OnInit {
 
   pass = 'visibility';
   typePass = 'password';
-
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -30,10 +28,6 @@ export class LoginComponent implements OnInit {
       this.typePass = 'password'
 
     }
-  }
-
-  testar(){
-    console.log("funcionao");
   }
 
 }
