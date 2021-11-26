@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { EntryComponent } from './entry.component';
 import { LoginComponent } from './login/login.component';
 import { AccountDataComponent } from './account-data/account-data.component';
+import { PaymentDataComponent } from './payment-data/payment-data.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AccountDataComponent } from './account-data/account-data.component';
   declarations: [
     EntryComponent,
     LoginComponent,
-    AccountDataComponent
+    AccountDataComponent,
+    PaymentDataComponent
   ],
 
   exports: [EntryComponent],
