@@ -1,3 +1,21 @@
-<div class="container">
+<div class="container-form">
 
+  <form>
+    <h1 class="form">Login</h1>
+    <label for="email">
+        <input class="dados" type="text" name="email" placeholder="Nickname">
+    </label>
+
+    <label for="senha">
+        <input class="dados" type="{{typePass}}" name="senha" placeholder="Password">
+    </label>
+
+    <div class="icon-pass"><mat-icon matSuffix (click)="verSenha()">{{pass}}</mat-icon></div>
+
+    <button>Enter</button>
+  </form>
+
+  <a href="">Register<mat-icon class="icon-link" matSuffix>navigate_next</mat-icon></a>
 </div>
+
+

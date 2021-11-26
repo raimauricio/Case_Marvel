@@ -1,8 +1,12 @@
-.container{
-  
-  width: 493px;
-  height: 592px;
-  background: #181B19;
-  border-radius: 24px;
+.container-form{
+  width: 26rem;
+  height: 27rem;
 
 }
+
+.container-form form{
+  height: 55%;
+  padding-top: 65px;
+
+}
+
