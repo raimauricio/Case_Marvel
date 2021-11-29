@@ -1,3 +1,4 @@
+import { EntryRouteRoutes } from './entry-route.routing';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -17,7 +18,7 @@ import { AddressDataComponent } from './address-data/address-data.component';
     LoginComponent,
     AccountDataComponent,
     PaymentDataComponent,
-    AddressDataComponent
+    AddressDataComponent,
   ],
 
   exports: [EntryComponent],
@@ -25,7 +26,8 @@ import { AddressDataComponent } from './address-data/address-data.component';
   imports: [
     CommonModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    EntryRouteRoutes
   ]
 
 })
