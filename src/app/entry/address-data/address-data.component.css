@@ -1,6 +1,6 @@
 .container-form{
   width: 26rem;
-  height: 32rem;
+  height: 31rem;
 
 }
 
@@ -32,7 +32,12 @@
 
 }
 
-.input-double input{
+.input-double .address{
 
-  width: 9.5rem;
+  width: 14.5rem;
+}
+
+.input-double .number{
+
+  width: 4.5rem;
 }

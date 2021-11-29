@@ -7,6 +7,7 @@ import { EntryComponent } from './entry.component';
 import { LoginComponent } from './login/login.component';
 import { AccountDataComponent } from './account-data/account-data.component';
 import { PaymentDataComponent } from './payment-data/payment-data.component';
+import { AddressDataComponent } from './address-data/address-data.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { PaymentDataComponent } from './payment-data/payment-data.component';
     EntryComponent,
     LoginComponent,
     AccountDataComponent,
-    PaymentDataComponent
+    PaymentDataComponent,
+    AddressDataComponent
   ],
 
   exports: [EntryComponent],

@@ -115,7 +115,6 @@ body { margin: 0; font-family: "Inter", sans-serif; }
   padding-left: 16px;
   background-color: #181B19;
   color: #ffffff;
-  color: #ffffff;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -123,7 +122,7 @@ body { margin: 0; font-family: "Inter", sans-serif; }
 }
 
 .container-form input.dados::placeholder{
-  color: #ffffff;
+  color: #F7F8FA;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -170,4 +169,15 @@ body { margin: 0; font-family: "Inter", sans-serif; }
   margin-top: 2px;
   padding: 0;
 
+}
+
+.container-form .input-double{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.container-form .input-double input{
+
+  width: 9.5rem;
 }
