@@ -90,16 +90,16 @@ body { margin: 0; font-family: "Inter", sans-serif; }
 .container-form form h1{
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 25px;
+  font-family: 'Roboto Condensed', sans-serif;
 
 }
 
 .container-form form h3{
-
   font-style: normal;
   font-weight: 500;
   text-align: left;
-  font-size: 14x;
+  font-size: 16px;
 
 }
 
@@ -142,6 +142,8 @@ body { margin: 0; font-family: "Inter", sans-serif; }
   margin-right: auto;
   border-radius: 4px;
   border: none;
+  cursor: pointer;
+
 
 }
 
@@ -178,6 +180,6 @@ body { margin: 0; font-family: "Inter", sans-serif; }
 }
 
 .container-form .input-double input{
-
   width: 9.5rem;
+
 }

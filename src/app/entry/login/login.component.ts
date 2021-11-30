@@ -12,10 +12,11 @@ export class LoginComponent implements OnInit {
   pass = 'visibility';
   typePass = 'password';
 
-  constructor() { }
+  constructor(
 
-  ngOnInit(): void {
-  }
+  ) { }
+
+  ngOnInit(): void {}
 
   verSenha(){
 
@@ -31,9 +32,4 @@ export class LoginComponent implements OnInit {
 
     }
   }
-
-  testar(){
-    console.log("funcionao");
-  }
-
 }

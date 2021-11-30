@@ -1,4 +1,6 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account-data',
@@ -9,10 +11,23 @@ export class AccountDataComponent implements OnInit {
 
   pass = 'visibility';
   typePass = 'password';
-  
-  constructor() { }
+  formAccount!: FormGroup;
+
+
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit(): void {
+    this.formAccount = this.formBuilder.group({
+      nickname:[null, [Validators.required]],
+      firstName:[null, [Validators.required]],
+      lastName:[null, [Validators.required]],
+      email:[null, [Validators.required, Validators.email]],
+      contact:[null, [Validators.required]],
+      password:[null, [Validators.required]]
+    })
   }
 
   verSenha(){
@@ -28,6 +43,10 @@ export class AccountDataComponent implements OnInit {
       this.typePass = 'password'
 
     }
+  }
+
+  nextRegistration(){
+    this.router.navigate(['/payment']);
   }
 
 }

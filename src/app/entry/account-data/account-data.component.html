@@ -1,36 +1,36 @@
 <div class="container-form">
 
-  <form>
+  <form [formGroup]="formAccount">
     <h1 class="form">Register</h1>
 
     <h3>Account Data</h3>
     <label for="nickname">
-        <input class="dados" type="text" name="nickname" placeholder="Nickname" required>
+        <input class="dados" type="text" formControlName="nickname" placeholder="Nickname" required>
     </label>
 
     <label for="firstname">
-      <input class="dados" type="text" name="firstname" placeholder="First Name" required>
+      <input class="dados" type="text" formControlName="firstName" placeholder="First Name" required>
     </label>
 
     <label for="lastname">
-      <input class="dados" type="text" name="lastname" placeholder="Last Name" required>
+      <input class="dados" type="text" formControlName="lastName" placeholder="Last Name" required>
     </label>
 
     <label for="email">
-      <input class="dados" type="email" name="email" placeholder="E-Mail" required>
+      <input class="dados" type="email" formControlName="email" placeholder="E-Mail" required>
     </label>
 
     <label for="contact">
-      <input class="dados" type="number" name="contact" placeholder="Contact" required>
+      <input class="dados" type="number" formControlName="contact" placeholder="Contact" required>
     </label>
 
     <label for="senha">
-      <input class="dados" type="{{typePass}}" name="password" placeholder="Password" required>
+      <input class="dados" type="{{typePass}}" formControlName="password" placeholder="Password" required>
     </label>
 
     <div class="icon-pass"><mat-icon matSuffix (click)="verSenha()">{{pass}}</mat-icon></div>
 
-    <button>Continue</button>
+    <button (click)="nextRegistration()">Continue</button>
   </form>
 
   <a routerLink="/login">Login<mat-icon class="icon-link" matSuffix>navigate_next</mat-icon></a>
