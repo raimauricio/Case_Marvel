@@ -1,13 +1,14 @@
 .container-form{
   width: 26rem;
-  height: 36rem;
+  height: 39rem;
 
 }
 
 .container-form form{
   height: 85%;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 2px;
+  margin-top: 35px;
 
 }
 

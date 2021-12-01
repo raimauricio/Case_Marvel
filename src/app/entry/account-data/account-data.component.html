@@ -1,36 +1,104 @@
+
 <div class="container-form">
 
-  <form [formGroup]="formAccount">
+  <form autocomplete="off" [formGroup]="formAccount" (submit)="nextRegistration()">
     <h1 class="form">Register</h1>
 
     <h3>Account Data</h3>
     <label for="nickname">
-        <input class="dados" type="text" formControlName="nickname" placeholder="Nickname" required>
+        <input class="dados" type="text" formControlName="nickname" placeholder="Nickname">
+          <app-mensagem-erro
+            *ngIf="formAccount.get('nickname')?.errors?.required &&
+            formAccount.get('nickname')?.touched"
+            mensagem="* required nickname"
+          ></app-mensagem-erro>
+
+          <app-mensagem-erro
+            *ngIf="formAccount.get('nickname')?.errors &&
+            formAccount.get('nickname')?.touched"
+            mensagem='* min characters 3, max 12...'
+          ></app-mensagem-erro>
+
+          <app-mensagem-erro
+            *ngIf="formAccount.get('nickname')?.errors?.carcters &&
+            formAccount.get('nickname')?.touched"
+            mensagem='* characters not accepted, except: "-  .  _"'
+          ></app-mensagem-erro>
+
     </label>
 
     <label for="firstname">
-      <input class="dados" type="text" formControlName="firstName" placeholder="First Name" required>
+      <input class="dados" type="text" formControlName="firstName" placeholder="First Name" >
+       <app-mensagem-erro
+          *ngIf="formAccount.get('firstName')?.errors?.required &&
+          formAccount.get('firstName')?.touched"
+          mensagem="* required first name"
+        ></app-mensagem-erro>
+
+        <app-mensagem-erro
+            *ngIf="formAccount.get('firstName')?.errors &&
+            formAccount.get('firstName')?.touched"
+            mensagem='* min characters 2, max 10...'
+          ></app-mensagem-erro>
     </label>
 
     <label for="lastname">
-      <input class="dados" type="text" formControlName="lastName" placeholder="Last Name" required>
+      <input autocomplete="off" class="dados" type="text" formControlName="lastName" placeholder="Last Name" >
+        <app-mensagem-erro
+          *ngIf="formAccount.get('lastName')?.errors?.required &&
+          formAccount.get('lastName')?.touched"
+          mensagem="* required last name"
+        ></app-mensagem-erro>
+
+        <app-mensagem-erro
+            *ngIf="formAccount.get('lastName')?.errors &&
+            formAccount.get('lastName')?.touched"
+            mensagem='* min characters 2, max 10...'
+        ></app-mensagem-erro>
     </label>
 
     <label for="email">
-      <input class="dados" type="email" formControlName="email" placeholder="E-Mail" required>
+      <input class="dados" type="email" formControlName="email" placeholder="E-Mail" >
+        <app-mensagem-erro
+          *ngIf="formAccount.get('email')?.errors?.required &&
+          formAccount.get('email')?.touched"
+          mensagem="* required email"
+        ></app-mensagem-erro>
+
+        <app-mensagem-erro
+          *ngIf="formAccount.get('email')?.errors?.email &&
+          formAccount.get('email')?.touched"
+          mensagem="* invalid email format"
+        ></app-mensagem-erro>
     </label>
 
     <label for="contact">
-      <input class="dados" type="number" formControlName="contact" placeholder="Contact" required>
+      <input class="dados" type="number" formControlName="contact" placeholder="Contact" maxlength="11">
+        <app-mensagem-erro
+          *ngIf="formAccount.get('contact')?.errors?.required &&
+          formAccount.get('contact')?.touched"
+          mensagem="* required contact"
+        ></app-mensagem-erro>
+
+        <app-mensagem-erro
+            *ngIf="formAccount.get('contact')?.errors &&
+            formAccount.get('contact')?.touched"
+            mensagem='* contact incorrect...'
+        ></app-mensagem-erro>
     </label>
 
-    <label for="senha">
-      <input class="dados" type="{{typePass}}" formControlName="password" placeholder="Password" required>
+    <label for="password">
+      <input class="dados" type="{{typePass}}" formControlName="password" placeholder="Password">
+        <app-mensagem-erro
+          *ngIf="formAccount.get('password')?.errors?.required &&
+          formAccount.get('password')?.touched"
+          mensagem="* required password"
+        ></app-mensagem-erro>
     </label>
 
     <div class="icon-pass"><mat-icon matSuffix (click)="verSenha()">{{pass}}</mat-icon></div>
 
-    <button (click)="nextRegistration()">Continue</button>
+    <button [disabled]="!formAccount.valid">Continue</button>
   </form>
 
   <a routerLink="/login">Login<mat-icon class="icon-link" matSuffix>navigate_next</mat-icon></a>

@@ -1,6 +1,7 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { validatorCaracters } from '../formValidator';
 
 @Component({
   selector: 'app-account-data',
@@ -21,11 +22,38 @@ export class AccountDataComponent implements OnInit {
 
   ngOnInit(): void {
     this.formAccount = this.formBuilder.group({
-      nickname:[null, [Validators.required]],
-      firstName:[null, [Validators.required]],
-      lastName:[null, [Validators.required]],
+      nickname:[
+        ''
+        ,[
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(12),
+          validatorCaracters
+        ]
+      ],
+      firstName:[
+        null,
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(10),
+        ]],
+      lastName:[
+        null,
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(10),
+        ]],
+
       email:[null, [Validators.required, Validators.email]],
-      contact:[null, [Validators.required]],
+      contact:[
+        null,
+        [
+          Validators.required,
+          Validators.min(11)
+        ]
+      ],
       password:[null, [Validators.required]]
     })
   }
