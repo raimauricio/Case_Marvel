@@ -1,40 +1,65 @@
 <div class="container-form">
 
-  <form>
+  <form [formGroup]="formAddress" (submit)="nextRegistration()">
     <h1 class="form">Register</h1>
 
     <h3>Address Data</h3>
     <label for="cep">
-        <input class="dados" type="number" name="cep" placeholder="CEP" required>
+        <input class="dados" type="text" formControlName="cep" placeholder="CEP" mask="00.000/000">
+        <app-mensagem-erro
+          *ngIf="formAddress.get('cep')?.errors?.required &&
+          formAddress.get('cep')?.touched"
+          mensagem="* required cep"
+        ></app-mensagem-erro>
     </label>
 
     <div class="input-double">
       <label for="address">
-        <input class="dados address" type="number" name="address" placeholder="Address" required>
+        <input class="dados address" type="text" formControlName="address" placeholder="Address" >
+        <app-mensagem-erro
+          *ngIf="formAddress.get('address')?.errors?.required &&
+          formAddress.get('address')?.touched"
+          mensagem="* required address"
+        ></app-mensagem-erro>
       </label>
 
       <label for="number">
-        <input class="dados number" type="number" name="number" placeholder="No." required>
+        <input class="dados number" type="number" formControlName="numberAddress" placeholder="No.">
+        <app-mensagem-erro
+          *ngIf="formAddress.get('numberAddress')?.errors?.required &&
+          formAddress.get('numberAddress')?.touched"
+          mensagem="* required number"
+        ></app-mensagem-erro>
       </label>
     </div>
 
     <label for="complement">
-      <input class="dados" type="text" name="complement" placeholder="Complement" required>
+      <input class="dados" type="text" formControlName="complement" placeholder="Complement">
     </label>
 
     <div class="input-double">
       <label for="district">
-        <input class="dados" type="text" name="district" placeholder="District" required>
+        <input class="dados" type="text" formControlName="district" placeholder="District">
+        <app-mensagem-erro
+          *ngIf="formAddress.get('district')?.errors?.required &&
+          formAddress.get('district')?.touched"
+          mensagem="* required district"
+        ></app-mensagem-erro>
       </label>
 
       <label for="city">
-        <input class="dados" type="text" name="city" placeholder="City" required>
+        <input class="dados" type="text" formControlName="city" placeholder="City">
+        <app-mensagem-erro
+          *ngIf="formAddress.get('city')?.errors?.required &&
+          formAddress.get('city')?.touched"
+          mensagem="* required city"
+        ></app-mensagem-erro>
       </label>
     </div>
 
 
 
-    <button (click)="nextRegistration()">Finish</button>
+    <button [disabled]="!formAddress.valid">Finish</button>
   </form>
 
   <a routerLink="/login">Login<mat-icon class="icon-link" matSuffix>navigate_next</mat-icon></a>

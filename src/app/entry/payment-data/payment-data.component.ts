@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,11 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentDataComponent implements OnInit {
 
+  formPayment!: FormGroup;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
+    this.formPayment = this.formBuilder.group({
+      cardNumber:[null, Validators.required],
+      validity: [null, Validators.required],
+      cvv: [null, Validators.required],
+      cardName:[null, Validators.required],
+      cpf:[null, Validators.required]
+
+    });
   }
 
 

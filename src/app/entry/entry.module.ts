@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { NgxMaskModule } from 'ngx-mask';
 
 import { EntryComponent } from './entry.component';
 import { LoginComponent } from './login/login.component';
@@ -20,7 +21,7 @@ import { MensagemErroComponent } from './mensagem-erro/mensagem-erro.component';
     AccountDataComponent,
     PaymentDataComponent,
     AddressDataComponent,
-    MensagemErroComponent,
+    MensagemErroComponent
   ],
 
   exports: [EntryComponent],
@@ -30,7 +31,9 @@ import { MensagemErroComponent } from './mensagem-erro/mensagem-erro.component';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    EntryRouteRoutes
+    EntryRouteRoutes,
+    NgxMaskModule.forChild()
+
   ]
 
 })

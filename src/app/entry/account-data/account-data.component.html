@@ -1,7 +1,7 @@
 
 <div class="container-form">
 
-  <form autocomplete="off" [formGroup]="formAccount" (submit)="nextRegistration()">
+  <form [formGroup]="formAccount" (submit)="nextRegistration()">
     <h1 class="form">Register</h1>
 
     <h3>Account Data</h3>
@@ -73,7 +73,7 @@
     </label>
 
     <label for="contact">
-      <input class="dados" type="number" formControlName="contact" placeholder="Contact" maxlength="11">
+      <input class="dados" type="tel" formControlName="contact" prefix="+55 " placeholder="Contact" mask="(00)  00000-0000">
         <app-mensagem-erro
           *ngIf="formAccount.get('contact')?.errors?.required &&
           formAccount.get('contact')?.touched"
@@ -93,6 +93,11 @@
           *ngIf="formAccount.get('password')?.errors?.required &&
           formAccount.get('password')?.touched"
           mensagem="* required password"
+        ></app-mensagem-erro>
+        <app-mensagem-erro
+          *ngIf="formAccount.get('password')?.errors &&
+          formAccount.get('password')?.touched"
+          mensagem="* min 6, max 8 characters"
         ></app-mensagem-erro>
     </label>
 

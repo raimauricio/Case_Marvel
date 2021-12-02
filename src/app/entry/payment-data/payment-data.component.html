@@ -1,32 +1,57 @@
 <div class="container-form">
 
-  <form>
+  <form [formGroup]="formPayment" (submit)="nextRegistration()">
     <h1 class="form">Register</h1>
 
     <h3>Payment Data</h3>
-    <label for="cardnumber">
-        <input class="dados" type="number" name="cardnumber" placeholder="Card Number" required>
+    <label for="cardNumber">
+        <input class="dados" type="text" formControlName="cardNumber" placeholder="Card Number" mask="0000 0000 0000 0000">
+        <app-mensagem-erro
+          *ngIf="formPayment.get('cardNumber')?.errors?.required &&
+          formPayment.get('cardNumber')?.touched"
+          mensagem="* required card number"
+        ></app-mensagem-erro>
     </label>
 
     <div class="input-double">
       <label for="validity">
-        <input class="dados" type="number" name="validity" placeholder="Validity" required>
+        <input class="dados" type="text" formControlName="validity" placeholder="Validity" mask="00/00">
+        <app-mensagem-erro
+          *ngIf="formPayment.get('validity')?.errors?.required &&
+          formPayment.get('validity')?.touched"
+          mensagem="* required validity"
+        ></app-mensagem-erro>
       </label>
 
       <label for="cvv">
-        <input class="dados" type="number" name="cvv" placeholder="CVV" required>
+        <input class="dados" type="text" formControlName="cvv" placeholder="CVV" mask="000">
+        <app-mensagem-erro
+          *ngIf="formPayment.get('cvv')?.errors?.required &&
+          formPayment.get('cvv')?.touched"
+          mensagem="* required cvv"
+        ></app-mensagem-erro>
       </label>
     </div>
 
     <label for="cardName">
-      <input class="dados" type="text" name="cardName" placeholder="Cardholder Name" required>
+      <input class="dados" type="text" formControlName="cardName" placeholder="Cardholder Name">
+      <app-mensagem-erro
+          *ngIf="formPayment.get('cardName')?.errors?.required &&
+          formPayment.get('cardName')?.touched"
+          mensagem="* required cardholder name"
+        ></app-mensagem-erro>
     </label>
 
     <label for="cpf">
-      <input class="dados" type="number" name="cpf" placeholder="CPF of the Holder" required>
+      <input class="dados" type="text" formControlName="cpf" placeholder="CPF of the Holder" mask="000.000.000-00">
+      <app-mensagem-erro
+          *ngIf="formPayment.get('cpf')?.errors?.required &&
+          formPayment.get('cpf')?.touched"
+          mensagem="* required cpf of the holder"
+        ></app-mensagem-erro>
     </label>
 
-    <button (click)="nextRegistration()">Continue</button>
+    <button [disabled]="!formPayment.valid">Continue</button>
   </form>
 
   <a routerLink="/login">Login<mat-icon class="icon-link" matSuffix>navigate_next</mat-icon></a>

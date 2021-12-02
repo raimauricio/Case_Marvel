@@ -50,11 +50,17 @@ export class AccountDataComponent implements OnInit {
       contact:[
         null,
         [
-          Validators.required,
-          Validators.min(11)
+          Validators.required
         ]
       ],
-      password:[null, [Validators.required]]
+      password:[
+        null,
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(8),
+        ]
+      ]
     })
   }
 
