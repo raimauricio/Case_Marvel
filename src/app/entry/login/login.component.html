@@ -1,18 +1,28 @@
 <div class="container-form">
 
-  <form>
+  <form [formGroup]="formLogin" (submit)="enter()">
     <h1>Login</h1>
-    <label for="email">
-        <input class="dados" type="text" name="nickname" placeholder="Nickname" required>
+    <label for="nickname">
+        <input class="dados" type="text" formControlName="nickname" placeholder="Nickname">
+        <app-mensagem-erro
+          *ngIf="formLogin.get('nickname')?.errors?.required &&
+          formLogin.get('nickname')?.touched"
+          mensagem="* required nickname"
+        ></app-mensagem-erro>
     </label>
 
     <label for="password">
-        <input class="dados" type="{{typePass}}" name="password" placeholder="Password" required>
+        <input class="dados" type="{{typePass}}" formControlName="password" placeholder="Password">
+        <app-mensagem-erro
+          *ngIf="formLogin.get('password')?.errors?.required &&
+          formLogin.get('password')?.touched"
+          mensagem="* required password"
+        ></app-mensagem-erro>
     </label>
 
     <div class="icon-pass"><mat-icon matSuffix (click)="verSenha()">{{pass}}</mat-icon></div>
 
-    <button>Enter</button>
+    <button [disabled]="!formLogin.valid">Enter</button>
   </form>
 
   <a routerLink="/account">Register<mat-icon class="icon-link" matSuffix>navigate_next</mat-icon></a>

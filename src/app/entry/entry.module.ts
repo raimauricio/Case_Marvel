@@ -1,10 +1,10 @@
-import { EntryRouteRoutes } from './entry-route.routing';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { NgxMaskModule } from 'ngx-mask';
 
+import { EntryRouteRoutes } from './entry-route.routing';
 import { EntryComponent } from './entry.component';
 import { LoginComponent } from './login/login.component';
 import { AccountDataComponent } from './account-data/account-data.component';

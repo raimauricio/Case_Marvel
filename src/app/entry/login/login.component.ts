@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-
+  formLogin!: FormGroup;
   pass = 'visibility';
   typePass = 'password';
 
-  constructor(
+  constructor( private formBuilder: FormBuilder) { }
 
-  ) { }
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.formLogin = this.formBuilder.group({
+      nickname:[null,Validators.required],
+      password:[null,Validators.required]
+    });
+  }
 
   verSenha(){
 
@@ -32,4 +36,9 @@ export class LoginComponent implements OnInit {
 
     }
   }
+
+  enter(){
+    console.log('Entrou !!!')
+  }
+
 }

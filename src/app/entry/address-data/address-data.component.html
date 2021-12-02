@@ -5,7 +5,7 @@
 
     <h3>Address Data</h3>
     <label for="cep">
-        <input class="dados" type="text" formControlName="cep" placeholder="CEP" mask="00.000/000">
+        <input class="dados" type="text" formControlName="cep" placeholder="CEP" mask="00.000/000" (blur)="consultaCep()">
         <app-mensagem-erro
           *ngIf="formAddress.get('cep')?.errors?.required &&
           formAddress.get('cep')?.touched"
