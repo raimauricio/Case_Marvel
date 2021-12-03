@@ -1,8 +1,8 @@
+import { MarvelService } from './../../services/marvel.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-address-data',
@@ -16,7 +16,7 @@ export class AddressDataComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private http: HttpClient
+    private service: MarvelService
   ){
 
   }
@@ -24,7 +24,7 @@ export class AddressDataComponent implements OnInit {
   ngOnInit(): void {
     this.formAddress = this.formBuilder.group({
 
-      cep:[null, Validators.required],
+      cep:['', Validators.required],
       address:[null, Validators.required],
       numberAddress:[null, Validators.required],
       complement:[null],
@@ -39,17 +39,20 @@ export class AddressDataComponent implements OnInit {
   }
 
   consultaCep(){
+  
     let cep = this.formAddress.get('cep')?.value
+
     if (cep != "") {
       var validacep = /^[0-9]{8}$/;
       if(validacep.test(cep)) {
-        this.http.get('https://viacep.com.br/ws/'+ cep + '/json/')
-        .subscribe(dados => {this.retornaDados(dados)})
+
+        this.service.buscaCep(cep)
+        .subscribe(dados => {this.populaCampos(dados)})
       }
     }
   }
 
-  retornaDados(dados: any){
+  populaCampos(dados: any){
     this.formAddress.patchValue({
       address:dados.logradouro,
       district:dados.bairro,
