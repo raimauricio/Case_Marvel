@@ -1,8 +1,8 @@
-import { MarvelService } from './../../services/marvel.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+import { MarvelService } from './../../services/marvel.service';
 
 @Component({
   selector: 'app-address-data',
@@ -35,11 +35,21 @@ export class AddressDataComponent implements OnInit {
   }
 
   nextRegistration(){
+    const dataAddress = {
+      cep: this.formAddress.get('cep')?.value,
+      address: this.formAddress.get('address')?.value,
+      numberAddress: this.formAddress.get('numberAddress')?.value,
+      complement: this.formAddress.get('complement')?.value,
+      district: this.formAddress.get('district')?.value,
+      city: this.formAddress.get('city')?.value,
+    }
+    
+    this.service.cadastrandoAddress(dataAddress);
     this.router.navigate(['/login']);
   }
 
   consultaCep(){
-  
+
     let cep = this.formAddress.get('cep')?.value
 
     if (cep != "") {

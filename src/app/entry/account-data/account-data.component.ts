@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { validatorCaracters } from '../formValidator';
 
+import { MarvelService } from './../../services/marvel.service';
+
 @Component({
   selector: 'app-account-data',
   templateUrl: './account-data.component.html',
@@ -12,12 +14,14 @@ export class AccountDataComponent implements OnInit {
 
   pass = 'visibility';
   typePass = 'password';
+  nickname = '';
   formAccount!: FormGroup;
 
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private service: MarvelService
   ) { }
 
   ngOnInit(): void {
@@ -80,6 +84,17 @@ export class AccountDataComponent implements OnInit {
   }
 
   nextRegistration(){
+    const dataAccount = {
+      nickname: this.formAccount.get('nickname')?.value,
+      firstname: this.formAccount.get('firstName')?.value,
+      lastname: this.formAccount.get('lastName')?.value,
+      email: this.formAccount.get('email')?.value,
+      contact: this.formAccount.get('contact')?.value,
+      password: this.formAccount.get('password')?.value
+
+    }
+
+    this.service.cadastrandoAccount(dataAccount);
     this.router.navigate(['/payment']);
   }
 

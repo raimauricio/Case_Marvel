@@ -2,6 +2,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+import { MarvelService } from './../../services/marvel.service';
+
 @Component({
   selector: 'app-payment-data',
   templateUrl: './payment-data.component.html',
@@ -13,7 +15,8 @@ export class PaymentDataComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private service: MarvelService
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +32,16 @@ export class PaymentDataComponent implements OnInit {
 
 
   nextRegistration(){
+    const dataPayment = {
+      cardNumber: this.formPayment.get('cardNumber')?.value,
+      validity: this.formPayment.get('validity')?.value,
+      cvv: this.formPayment.get('cvv')?.value,
+      cardName: this.formPayment.get('cardName')?.value,
+      cpf: this.formPayment.get('cpf')?.value,
+
+    }
+
+    this.service.cadastrandoPayment(dataPayment);
     this.router.navigate(['/address']);
   }
 
