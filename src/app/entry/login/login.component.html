@@ -22,6 +22,11 @@
 
     <div class="icon-pass"><mat-icon matSuffix (click)="verSenha()">{{pass}}</mat-icon></div>
 
+    <app-mensagem-erro
+      *ngIf="errorLogin"
+      mensagem="invalid nickname or password"
+    ></app-mensagem-erro>
+    
     <button [disabled]="!formLogin.valid">Enter</button>
   </form>
 
