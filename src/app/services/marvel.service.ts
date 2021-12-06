@@ -71,6 +71,23 @@ export class MarvelService {
 
   }
 
+  logar(nickname: string, password: string){
+    let logou;
+    for(let i in this.perfis){
+      if(nickname === this.perfis[i].nickname){
+        if(password == this.perfis[i].password){
+          logou = true
+        }else{
+          logou = false;
+        }
+      }else{
+        logou = false;
+      }
+    }
+
+    return logou;
+  }
+
 
 
 }
