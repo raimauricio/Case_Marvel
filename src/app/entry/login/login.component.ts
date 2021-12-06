@@ -46,7 +46,9 @@ export class LoginComponent implements OnInit {
     let nickname = this.formLogin.get('nickname')?.value;
     let password = this.formLogin.get('password')?.value;
 
-    console.log(this.service.logar(nickname, password));
+    if(this.service.logar(nickname, password)){
+
+    }
   }
 
 }
