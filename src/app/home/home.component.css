@@ -2,6 +2,7 @@
   width: 100%;
   background-color: #E5E5E5;
   font-family: 'Roboto-Condensed', sans-serif;
+
 }
 
 .menu{
@@ -10,6 +11,7 @@
   background-color:#272827 ;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0px 7px 7px 0px rgba(7, 7, 7, 0.35)
 }
 
 .menu img.logo{

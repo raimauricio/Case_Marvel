@@ -28,7 +28,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-  overflow: hidden;
+  overflow: auto;
 }
 ol, ul {
 	list-style: none;
@@ -187,5 +187,12 @@ body { margin: 0; font-family: "Inter", sans-serif; }
 
 .container-form .input-double input{
   width: 9.5rem;
+
+}
+
+h1.title-pages{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
 
 }

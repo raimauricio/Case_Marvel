@@ -1,12 +1,12 @@
 <div class="container">
  <header class="menu">
   <ul>
-   <li>Profile</li>
-   <li>Log out</li>
+   <a routerLink="/profile"><li>Profile</li></a>
+   <a routerLink="/login"><li>Log out</li></a>
   </ul>
   <img class="logo" src="assets/img/logo.png" alt=""/>
  </header>
- <div class="conteudo-comic">
-
+ <div class="conteudo">
+    <app-comic-books></app-comic-books>
  </div>
 </div>
