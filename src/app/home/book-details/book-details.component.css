@@ -1,0 +1,145 @@
+.container-book-details{
+  width: 70rem;
+  margin: auto;
+  margin-top:30px;
+  height: auto;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.book{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-details{
+  width: 59rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-book{
+  width: 250px;
+  height: 350px;
+
+}
+
+.image-book img{
+  width: 250px;
+  height: 350px;
+  box-shadow: 0px 9px 7px 0px rgba(7, 7, 7, 0.35)
+}
+
+.book-description{
+  display: flex;
+  width: 700px;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.book-description h1{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+
+}
+
+.book-description p{
+  font-style: normal;
+  font-weight: 200;
+  font-size: 13px;
+
+}
+
+.book-description p strong{
+  font-weight: normal;
+
+}
+.details-info{
+  display: flex;
+  width: 400px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.details-description{
+  width: 400px;
+
+}
+
+.book-buy{
+  width: 54rem;
+  height:100px;
+  background: #F7F8FA;
+  box-shadow: 0px 25px 80px rgba(0, 0, 0, 0.27),
+   0px 2.27px 3.12px rgba(0, 0, 0, 0.215913),
+   0px 4.84px 10.0172px rgba(0, 0, 0, 0.169756),
+   0px -0.42211px 3.62304px rgba(0, 0, 0, 0.115395);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+
+}
+
+.price{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.price h1{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+
+}
+
+.price p{
+  margin-top: -13px;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 13px;
+  line-height: 16px
+
+}
+
+h2.price{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 47px;
+}
+
+.button-buy{
+  display: flex;
+  align-items: center;
+}
+
+.button-buy button{
+  width: 270px;
+  height: 55px;
+  background: #ED1D24;
+  border-radius: 4px;
+  color: #F7F8FA;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  border-style: none;
+}

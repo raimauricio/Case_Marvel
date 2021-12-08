@@ -6,13 +6,15 @@ import { HomeComponent } from './home.component';
 import { ComicBooksComponent } from './comic-books/comic-books.component'
 import { HomeRouteRoutes } from './home-route.routing';
 import { ProfileComponent } from './profile/profile.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     ComicBooksComponent,
-    ProfileComponent
+    ProfileComponent,
+    BookDetailsComponent
   ],
   exports:[HomeComponent],
   imports: [
