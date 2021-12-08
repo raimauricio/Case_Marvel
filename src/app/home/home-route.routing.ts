@@ -1,6 +1,8 @@
-import { ComicBooksComponent } from './comic-books/comic-books.component';
 import { Routes, RouterModule } from '@angular/router';
+
 import { HomeComponent } from './home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { ComicBooksComponent } from './comic-books/comic-books.component';
 
 const routes: Routes = [
   {
@@ -8,10 +10,10 @@ const routes: Routes = [
     component: HomeComponent,
     children:[
       {path:'comic-books', component: ComicBooksComponent},
-      {path: '', component:ComicBooksComponent},
-      {path: '**', redirectTo:'comic-books', pathMatch:'full'}
+      {path:'profile', component: ProfileComponent},
+      {path:'', component: ComicBooksComponent}
     ]
-  },
+  }
 ];
 
 export const HomeRouteRoutes = RouterModule.forChild(routes);

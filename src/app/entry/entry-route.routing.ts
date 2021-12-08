@@ -15,8 +15,7 @@ const routes: Routes = [
       {path:'account', component: AccountDataComponent},
       {path:'payment', component: PaymentDataComponent},
       {path:'address', component: AddressDataComponent},
-      {path: '', component: LoginComponent},
-      {path: '**', redirectTo:'login', pathMatch:'full'}
+      {path: '', component: LoginComponent}
     ]
   }
 
