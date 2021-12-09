@@ -1,0 +1,37 @@
+.container-msg-buy{
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  display: flex;
+  align-items: center;
+
+}
+
+.msg-buy{
+  width: 438px;
+  height: 181px;
+  margin: auto;
+  margin-top: -30%;
+  background: #F7F8FA;
+  box-shadow: 0px 0px 0px 800px rgba(0.548, 0.548, 0.548, 0.548);
+  border-radius: 20px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+
+}
+.msg-buy mat-icon{
+  margin-left: 380px;
+  margin-top: 10px;
+  cursor: pointer;
+
+}
+
+.msg-buy p{
+  margin-top: 35px;
+
+}

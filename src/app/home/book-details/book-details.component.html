@@ -33,8 +33,11 @@
         <h2 class="price">$3.99</h2>
       </div>
       <div class="button-buy">
-        <button>Buy Digital Issue</button>
+        <button (click)="purchase()">Buy Digital Issue</button>
       </div>
     </div>
   </div>
+
 </div>
+<app-msg-buy (fecharMensagem)="fecharMensagem($event)" *ngIf="buy"></app-msg-buy>
+

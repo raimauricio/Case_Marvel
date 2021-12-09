@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookDetailsComponent implements OnInit {
 
+  buy = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  purchase(){
+    this.buy = true;
+  }
+
+  fecharMensagem(event: boolean){
+    this.buy = event;
   }
 
 }

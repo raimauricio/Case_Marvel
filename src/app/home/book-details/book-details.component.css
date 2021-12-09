@@ -142,4 +142,5 @@ h2.price{
   font-size: 24px;
   line-height: 28px;
   border-style: none;
+  cursor: pointer;
 }

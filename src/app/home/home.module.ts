@@ -7,6 +7,7 @@ import { ComicBooksComponent } from './comic-books/comic-books.component'
 import { HomeRouteRoutes } from './home-route.routing';
 import { ProfileComponent } from './profile/profile.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { MsgBuyComponent } from './msg-buy/msg-buy.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     HomeComponent,
     ComicBooksComponent,
     ProfileComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    MsgBuyComponent
   ],
   exports:[HomeComponent],
   imports: [
