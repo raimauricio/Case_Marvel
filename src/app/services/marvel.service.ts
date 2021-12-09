@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Md5} from 'ts-md5/dist/md5';
 
 import { Perfil } from './../interfaces/perfil.component';
 
@@ -10,10 +11,15 @@ import { Perfil } from './../interfaces/perfil.component';
 export class MarvelService {
 
   static qtdPerfilReg = 1;
+  marvelUrl = 'http://gateway.marvel.com';
+  perfilLogado!: Perfil;
   perfis: Perfil[] = [
     {id:0, nickname:'admin',firstName:'', lastName:'', email:'', contact:'', password:'admin', cardNumber:''
     , validity:0, cvv:0, cardName: '', cardCpf:'', cep: 0, address:'', addressNumber: 0, complement: '',
-    district:'', city:''}
+    district:'', city:''},
+    {id:3, nickname:'manas',firstName:'Manoelito', lastName:'Batista', email:'manas.batista@hotmail.com', contact:'13988997766', password:'manas1970', cardNumber:'1233445566778899'
+    , validity:1225, cvv:0, cardName: 'Manoelito N Batista', cardCpf:'22233344455', cep: 4052030, address:'Rua de Algum lugar', addressNumber: 100, complement: 'Ap 2',
+    district:'Sampa', city:'Praia Grande'},
   ];
 
   nickname =''; firstname =''; lastname='';email=''; contact=''; password='';cardnumber='' ; validity=0;
@@ -76,6 +82,7 @@ export class MarvelService {
     for(let i in this.perfis){
       if(nickname === this.perfis[i].nickname){
         if(password == this.perfis[i].password){
+          this.perfilLogado = this.perfis[i];
           logou = true
         }else{
           logou = false;
@@ -86,6 +93,26 @@ export class MarvelService {
     }
 
     return logou;
+  }
+
+  getPerfilLogado(){
+    return this.perfilLogado;
+  }
+
+  getComicBooks(){
+
+    const timestamp = new Date().getTime().toString();
+    const publicKey = '17be704dbf350a84fe802782c92112fe';
+    const privateKey ='9d9c14f2a63ae44d4cae8190d678396a4aab4579';
+    const md5 = new Md5();
+    const hash = md5.appendStr(timestamp+privateKey+publicKey).end();
+
+    return this.http.get<any>(`${this.marvelUrl}/v1/public/comics?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`, {
+      headers: new HttpHeaders({
+        "Content-type": "application/json",
+      })
+    });
+
   }
 
 

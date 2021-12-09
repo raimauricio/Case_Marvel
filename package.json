@@ -20,8 +20,10 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "md5": "^2.3.0",
     "ngx-mask": "^13.0.0",
     "rxjs": "~6.6.0",
+    "ts-md5": "^1.2.10",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
