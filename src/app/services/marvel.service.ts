@@ -84,13 +84,16 @@ export class MarvelService {
         if(password == this.perfis[i].password){
           this.perfilLogado = this.perfis[i];
           logou = true
+          break
         }else{
+
           logou = false;
         }
       }else{
         logou = false;
       }
     }
+
 
     return logou;
   }
