@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+
+import { MarvelService } from 'src/app/services/marvel.service';
+
 @Component({
   selector: 'app-comic-books',
   templateUrl: './comic-books.component.html',
@@ -7,11 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComicBooksComponent implements OnInit {
 
-  arrayBooks = [1,2,3,4,5,6,7,8,9,10,11,12];
-  
-  constructor() { }
+  constructor(private service: MarvelService) { }
+
+  comicBooks: any;
 
   ngOnInit(): void {
+    this.service.getComicBooks().subscribe((result) =>{
+      this.comicBooks = result.data.results
+      console.log(this.comicBooks)
+    })
   }
 
 }

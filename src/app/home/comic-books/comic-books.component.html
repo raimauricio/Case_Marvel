@@ -2,9 +2,9 @@
   <h1 class="title-pages">Comic Books</h1>
 
   <div class="comic-books">
-    <div *ngFor="let item of arrayBooks" class="books">
+    <div *ngFor="let comicBook of comicBooks" class="books">
       <a routerLink="/book-details">
-        <img src="assets/img/image1.png" alt="">
+        <img src="{{comicBook.thumbnail.path}}/portrait_fantastic.jpg" alt="">
         <h3 class="title-book">Título do comic boook #30</h3>
         <span class="autor">Nome, autor</span>
       </a>

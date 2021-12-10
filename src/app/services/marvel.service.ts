@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Md5} from 'ts-md5/dist/md5';
@@ -11,7 +12,7 @@ import { Perfil } from './../interfaces/perfil.component';
 export class MarvelService {
 
   static qtdPerfilReg = 1;
-  marvelUrl = 'http://gateway.marvel.com';
+  marvelUrl = environment.marvelUrl;
   perfilLogado!: Perfil;
   perfis: Perfil[] = [
     {id:0, nickname:'admin',firstName:'', lastName:'', email:'', contact:'', password:'admin', cardNumber:''
@@ -25,7 +26,7 @@ export class MarvelService {
   nickname =''; firstname =''; lastname='';email=''; contact=''; password='';cardnumber='' ; validity=0;
   cvv=0; cardname=''; cardcpf='';cep=0;address='';addressnumber=0;complement='';district='';city='';
 
-  constructor(private http: HttpClient) { }
+  constructor(protected http: HttpClient) { }
 
 
   buscaCep(cep: string){
@@ -105,19 +106,17 @@ export class MarvelService {
   getComicBooks(){
 
     const timestamp = new Date().getTime().toString();
-    const publicKey = '17be704dbf350a84fe802782c92112fe';
-    const privateKey ='9d9c14f2a63ae44d4cae8190d678396a4aab4579';
+    const publicKey = "17be704dbf350a84fe802782c92112fe";
+    const privateKey = "9d9c14f2a63ae44d4cae8190d678396a4aab4579";
     const md5 = new Md5();
     const hash = md5.appendStr(timestamp+privateKey+publicKey).end();
 
     return this.http.get<any>(`${this.marvelUrl}/v1/public/comics?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`, {
       headers: new HttpHeaders({
-        "Content-type": "application/json",
+        "Content-Type": "application/json",
       })
-    });
+    })
 
   }
-
-
 
 }
