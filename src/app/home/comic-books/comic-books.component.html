@@ -3,9 +3,9 @@
 
   <div class="comic-books">
     <div *ngFor="let comicBook of comicBooks" class="books">
-      <a routerLink="/book-details">
+      <a routerLink="/book-details" (click)="pegarDetalhes(comicBook.id)">
         <img src="{{comicBook.thumbnail.path}}/portrait_fantastic.jpg" alt="">
-        <h3 class="title-book">Título do comic boook #30</h3>
+        <h3 class="title-book">{{comicBook.title}}</h3>
         <span class="autor">Nome, autor</span>
       </a>
     </div>

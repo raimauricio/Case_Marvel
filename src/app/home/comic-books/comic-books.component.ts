@@ -11,7 +11,6 @@ import { MarvelService } from 'src/app/services/marvel.service';
 export class ComicBooksComponent implements OnInit {
 
   constructor(private service: MarvelService) { }
-
   comicBooks: any;
 
   ngOnInit(): void {
@@ -19,6 +18,10 @@ export class ComicBooksComponent implements OnInit {
       this.comicBooks = result.data.results
       console.log(this.comicBooks)
     })
+  }
+
+  pegarDetalhes(id: number){
+    this.service.setDetailsBook(id);
   }
 
 }

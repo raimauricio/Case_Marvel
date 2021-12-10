@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MarvelService } from 'src/app/services/marvel.service';
+
 @Component({
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
@@ -7,11 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookDetailsComponent implements OnInit {
 
+  comicBooks: any;
+  comicBookImg: any;
+  idBook!: number;
   buy = false;
 
-  constructor() { }
+  constructor(private service: MarvelService) { }
 
   ngOnInit(): void {
+    this.service.getComicBooks().subscribe((result) =>{
+      this.comicBooks = result.data.results
+      this.idBook = this.service.getBookDetails();
+      for(let i in this.comicBooks){
+        if(this.idBook == this.comicBooks[i].id)
+        this.comicBookImg = this.comicBooks[i].thumbnail.path;
+      }
+    })
   }
 
   purchase(){
@@ -21,5 +34,7 @@ export class BookDetailsComponent implements OnInit {
   fecharMensagem(event: boolean){
     this.buy = event;
   }
+
+
 
 }

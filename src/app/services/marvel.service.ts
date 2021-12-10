@@ -11,9 +11,16 @@ import { Perfil } from './../interfaces/perfil.component';
 
 export class MarvelService {
 
+  nickname =''; firstname =''; lastname='';email=''; contact=''; password='';cardnumber='' ; validity=0;
+  cvv=0; cardname=''; cardcpf='';cep=0;address='';addressnumber=0;complement='';district='';city='';
   static qtdPerfilReg = 1;
   marvelUrl = environment.marvelUrl;
+  idBook!: number;
   perfilLogado!: Perfil;
+
+
+
+  //Banco de dados Perfil
   perfis: Perfil[] = [
     {id:0, nickname:'admin',firstName:'', lastName:'', email:'', contact:'', password:'admin', cardNumber:''
     , validity:0, cvv:0, cardName: '', cardCpf:'', cep: 0, address:'', addressNumber: 0, complement: '',
@@ -23,8 +30,7 @@ export class MarvelService {
     district:'Sampa', city:'Praia Grande'},
   ];
 
-  nickname =''; firstname =''; lastname='';email=''; contact=''; password='';cardnumber='' ; validity=0;
-  cvv=0; cardname=''; cardcpf='';cep=0;address='';addressnumber=0;complement='';district='';city='';
+
 
   constructor(protected http: HttpClient) { }
 
@@ -117,6 +123,14 @@ export class MarvelService {
       })
     })
 
+  }
+
+  setDetailsBook(id: number){
+    this.idBook = id;
+  }
+
+  getBookDetails(){
+    return this.idBook;
   }
 
 }
