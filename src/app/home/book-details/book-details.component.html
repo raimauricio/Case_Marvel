@@ -8,15 +8,15 @@
   <div class="book">
     <div class="book-details">
       <section class="image-book">
-        <img src="{{comicBookImg}}/portrait_fantastic.jpg" alt="">
+        <img src="{{comicBook.img}}" alt="">
       </section>
       <section class="book-description">
-        <h1>Star Wars: The High Republic (2021) #9</h1>
+        <h1>{{comicBook.title}}</h1>
         <div class="details-info">
-          <p><strong>Published:</strong> September 01, 2021</p>
-          <p><strong>Writer:</strong> Cavan Scott</p>
-          <p><strong>Penciler:</strong> Ario Anindito</p>
-          <p><strong>Cover Artist:</strong> Phil Noto</p>
+          <p><strong>Published:</strong> {{comicBook.published}}</p>
+          <p><strong>Writer:</strong> {{comicBook.writer}}</p>
+          <p><strong>Penciler:</strong> {{comicBook.penciler}}</p>
+          <p><strong>Cover Artist:</strong> {{comicBook.coverArtist}}</p>
         </div>
         <div class="details-description">
           <p><strong>Descrition</strong></p>
@@ -30,7 +30,7 @@
       <div class="price">
         <h1>Acquire the Comic</h1>
         <p>Read online or on your iPhone, iPad or Android Device</p>
-        <h2 class="price">$3.99</h2>
+        <h2 class="price">${{comicBook.price}}</h2>
       </div>
       <div class="button-buy">
         <button (click)="purchase()">Buy Digital Issue</button>

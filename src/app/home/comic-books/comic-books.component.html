@@ -3,10 +3,10 @@
 
   <div class="comic-books">
     <div *ngFor="let comicBook of comicBooks" class="books">
-      <a routerLink="/book-details" (click)="pegarDetalhes(comicBook.id)">
-        <img src="{{comicBook.thumbnail.path}}/portrait_fantastic.jpg" alt="">
+      <a routerLink="/book-details/" (click)="pegarDetalhes(comicBook)">
+        <img src="{{comicBook.img}}" alt="">
         <h3 class="title-book">{{comicBook.title}}</h3>
-        <span class="autor">Nome, autor</span>
+        <span class="autor">{{comicBook.autor}}</span>
       </a>
     </div>
   </div>

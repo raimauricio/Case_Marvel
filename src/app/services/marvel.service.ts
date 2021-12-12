@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Md5} from 'ts-md5/dist/md5';
 
+import { ComicBook } from './../interfaces/comicbook.componente';
 import { Perfil } from './../interfaces/perfil.component';
 
 @Injectable({
@@ -15,12 +16,12 @@ export class MarvelService {
   cvv=0; cardname=''; cardcpf='';cep=0;address='';addressnumber=0;complement='';district='';city='';
   static qtdPerfilReg = 1;
   marvelUrl = environment.marvelUrl;
-  idBook!: number;
+  comicBook!: ComicBook;
   perfilLogado!: Perfil;
 
 
 
-  //Banco de dados Perfil
+  //Banco de dados
   perfis: Perfil[] = [
     {id:0, nickname:'admin',firstName:'', lastName:'', email:'', contact:'', password:'admin', cardNumber:''
     , validity:0, cvv:0, cardName: '', cardCpf:'', cep: 0, address:'', addressNumber: 0, complement: '',
@@ -125,12 +126,12 @@ export class MarvelService {
 
   }
 
-  setDetailsBook(id: number){
-    this.idBook = id;
+  setDetailsBook(book: ComicBook){
+    this.comicBook = book;
   }
 
   getBookDetails(){
-    return this.idBook;
+    return this.comicBook;
   }
 
 }

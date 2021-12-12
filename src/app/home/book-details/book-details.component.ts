@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ComicBook } from './../../interfaces/comicbook.componente';
 import { MarvelService } from 'src/app/services/marvel.service';
 
 @Component({
@@ -9,22 +10,16 @@ import { MarvelService } from 'src/app/services/marvel.service';
 })
 export class BookDetailsComponent implements OnInit {
 
-  comicBooks: any;
-  comicBookImg: any;
-  idBook!: number;
+
+  comicBook!: ComicBook
   buy = false;
 
   constructor(private service: MarvelService) { }
 
   ngOnInit(): void {
-    this.service.getComicBooks().subscribe((result) =>{
-      this.comicBooks = result.data.results
-      this.idBook = this.service.getBookDetails();
-      for(let i in this.comicBooks){
-        if(this.idBook == this.comicBooks[i].id)
-        this.comicBookImg = this.comicBooks[i].thumbnail.path;
-      }
-    })
+
+    this.comicBook = this.service.getBookDetails();
+
   }
 
   purchase(){
