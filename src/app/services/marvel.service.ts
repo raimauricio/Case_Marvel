@@ -15,7 +15,7 @@ export class MarvelService {
   nickname =''; firstname =''; lastname='';email=''; contact=''; password='';cardnumber='' ; validity=0;
   cvv=0; cardname=''; cardcpf='';cep=0;address='';addressnumber=0;complement='';district='';city='';
   static qtdPerfilReg = 1;
-  marvelUrl = environment.marvelUrl;
+  marvelUrl = "http://gateway.marvel.com";
   comicBook!: ComicBook;
   perfilLogado!: Perfil;
 
