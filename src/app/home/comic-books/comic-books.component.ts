@@ -28,7 +28,7 @@ export class ComicBooksComponent implements OnInit {
               img: this.marvelHq[i].thumbnail.path+'/portrait_fantastic.jpg',
               title: this.marvelHq[i].title,
               autor: this.marvelHq[i].creators.items[0] ? this.marvelHq[i].creators.items[0].name: 'unknown author',
-              published: 'semptember, 2009',
+              published: this.marvelHq[i].dates[0].date,
               writer: this.marvelHq[i].creators.items[1] ? this.marvelHq[i].creators.items[1].name: 'unknown writer',
               penciler: this.marvelHq[i].creators.items[2] ? this.marvelHq[i].creators.items[2].name: 'unknown penciler',
               coverArtist: this.marvelHq[i].creators.items[3] ? this.marvelHq[i].creators.items[3].name: 'unknown cover',
@@ -36,7 +36,6 @@ export class ComicBooksComponent implements OnInit {
               cast: this.marvelHq[i].creators.items[0] ? this.marvelHq[i].creators.items[0].name: 'unknown cast',
               price: this.marvelHq[i].prices[0].price
             }
-
           );
         }
       }

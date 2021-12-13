@@ -13,7 +13,7 @@
       <section class="book-description">
         <h1>{{comicBook.title}}</h1>
         <div class="details-info">
-          <p><strong>Published:</strong> {{comicBook.published}}</p>
+          <p><strong>Published:</strong> {{comicBook.published | date:'MMMM d, y'}}</p>
           <p><strong>Writer:</strong> {{comicBook.writer}}</p>
           <p><strong>Penciler:</strong> {{comicBook.penciler}}</p>
           <p><strong>Cover Artist:</strong> {{comicBook.coverArtist}}</p>
